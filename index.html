@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fce4ec;
+            color: #333;
+            padding-top: 50px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #yesButton {
+            background-color: #e91e63;
+            color: white;
+        }
+
+        #noButton {
+            background-color: #9e9e9e;
+            color: white;
+        }
+
+        img {
+            display: none;
+            margin-top: 20px;
+            width: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+    
+    <!-- Hidden images that will appear after clicking Yes -->
+    <img id="photo1" src="https://example.com/photo1.jpg" alt="Photo 1">
+    <img id="photo2" src="https://example.com/photo2.jpg" alt="Photo 2">
+    <img id="photo3" src="https://example.com/photo3.jpg" alt="Photo 3">
+
+    <script>
+        let noClickCount = 0;
+
+        document.getElementById('yesButton').addEventListener('click', function() {
+            alert('I’m so happy! Thank you!');
+
+            // Reveal the photos
+            document.getElementById('photo1').style.display = 'inline';
+            document.getElementById('photo2').style.display = 'inline';
+            document.getElementById('photo3').style.display = 'inline';
+        });
+
+        document.getElementById('noButton').addEventListener('click', function() {
+            noClickCount++;
+            
+            const messages = [
+                "Aww, please choose Yes!",
+                "Come on, you can do it!",
+                "Don't leave me hanging!",
+                "Pretty please?",
+                "I believe in you!"
+            ];
+
+            const messageIndex = noClickCount % messages.length;
+            alert(messages[messageIndex]);
+
+            // Increase the size of the Yes button
+            const yesButton = document.getElementById('yesButton');
+            yesButton.style.fontSize = ${16 + noClickCount * 2}px;
+        });
+    </script>
+</body>
+</html>
